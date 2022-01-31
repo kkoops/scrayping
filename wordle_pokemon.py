@@ -23,15 +23,15 @@ def count_match(word,str_y):
             count=count+1
     return count==len(str_y)
 pokemon_list=[]
-black=["ト","セ","ル","ド","カ","ス"]
-yellow=[]
-green=[None,"ン",None,"ラ",None]
+black=[]
+yellow=['ー','ン','ラ','']
+green=[None,None,None,None,None]
 maxlength=count_max_length(green)
+
 with open('pokemonlistfile.txt') as f:
     lines=f.read()
     for i in lines.split("\n"):
        pokemon_list.append(i)
-#print(pokemon_list)
 for i in pokemon_list:
     if len(i)==5  and count_index(i,green)==maxlength and count_not_match(i,black)==True and count_match(i,yellow)==True:
         print(i)
